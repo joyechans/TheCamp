@@ -2,11 +2,12 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="title" value="캠핑공간 등록" scope="request"/>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="../include/cssimport.jsp" />
 <link rel="stylesheet" type="text/css" href="/resources/css/camp.css">
 </head>
@@ -15,8 +16,8 @@
 <jsp:include page="../include/header.jsp" />
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/heading-pages-02.jpg);">
-		<h2 class="l-text2 t-center">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/main2.png);">
+		<h2 class="l-text2 t-center" style="color:#6fc583d1">
 			Camp
 		</h2>
 		<p class="m-text13 t-center">

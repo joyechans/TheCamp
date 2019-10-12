@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="title" value="캠핑공간 수정"  scope="request"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +15,12 @@
 <jsp:include page="../include/header.jsp" />
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/heading-pages-02.jpg);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/캠핑장.jpg);">
 		<h2 class="l-text2 t-center">
 			Camp
 		</h2>
 		<p class="m-text13 t-center">
-			캠핑리뷰 등록
+			캠핑장 리뷰수정
 		</p>
 	</section>
 	
@@ -44,9 +44,9 @@
 							<div class="tit">
 								<label for="review_title">제목<span class="ico_required">*</span></label>
 							</div>
-							<span class="option"><span class="txt_count"><em id="campNameCnt">0</em>자/<em>18</em>자</span></span>
+							<span class="option"><span class="txt_count"><em id="reviewCnt">0</em>자/<em>18</em>자</span></span>
 							<div class="input">
-								<input type="text" id="title" min="1" maxlength="18" name="title" value="${ review.title }">
+								<input type="text" id="review_title" min="1" maxlength="18" name="title" value="${ review.title }">
 								
 								<hr>
 							</div>
@@ -85,13 +85,13 @@
 						</div>
 						<div class="box_form">
 							<div class="tit">
-								<label for="content">내용 작성<span class="ico_required">*</span></label>
+								<label for="review_content">내용 작성<span class="ico_required">*</span></label>
 							</div>
 							<span class="option">
-								<span class="txt_count"><em id="campContentCnt">0</em>자/<em>500</em>자<span class="txt_guide">(최소 20자)</span></span>
+								<span class="txt_count"><em id="reviewContentCnt">0</em>자/<em>500</em>자<span class="txt_guide">(최소 20자)</span></span>
 							</span>
 							<div class="input">
-								<textarea id="content" class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" minlength="20" maxlength="500" name="content" required
+								<textarea id="review_content" class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" minlength="20" maxlength="500" name="content" required
 									placeholder="캠핑장이나 상품에 관련된 리뷰를 작성해주세요">${review.content }</textarea>
 							</div>
 							<p class="p_guide warn">
@@ -99,9 +99,6 @@
 							</p>
 						</div>
 
-						
-						
-						
 						<div class="box_form">
 							<div class="btn_box">
 								<input type="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 m-text3 trans-0-4" value="리뷰 수정">

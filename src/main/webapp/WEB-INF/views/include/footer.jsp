@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${ pageContext.request.contextPath }"/>
 
 <footer class="bg6 p-t-40 p-b-43 p-l-45 p-r-45">
 		<div class="flex-w p-b-90">
@@ -157,7 +154,7 @@
 			</a>
 
 			<div class="t-center s-text8 p-t-20">
-				Copyright Â© 2019 All rights reserved. | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="/home" target="_blank">TheCamp</a>
+				Copyright © 2019 All rights reserved. | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="/home" target="_blank">TheCamp</a>
 			</div>
 		</div>
 	</footer>

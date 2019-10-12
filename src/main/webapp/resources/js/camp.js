@@ -82,7 +82,25 @@ $(function () {
 	});	
 	
 	
-	/* ----------- calendar -----------	*/
+	/* ----------- textCount(review) ---------- */
+	$("#review_title").keyup(function (e) {
+		var content = $(this).val();
+		$(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+		$("#reviewCnt").html(content.length);
+	});
+	$("#review_title").keyup();
+
+	$("#review_content").keyup(function (e) {
+		var content = $(this).val();
+		$(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+		$("#reviewContentCnt").html(content.length);
+	});
+	$("#review_content").keyup();
+	
+	
+	/* ----------- calendar -----------	*/	
+	var rentDates = [];
+	
 	$("#startDate").datepicker({ 
 		dateFormat: 'yy-mm-dd'
         ,showOtherMonths: true
@@ -98,7 +116,10 @@ $(function () {
         ,dayNamesMin: ['일','월','화','수','목','금','토']
         ,minDate: 0
         ,maxDate: "+1Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-    	,beforeShowDay: addDates
+    	,beforeShowDay: function (date) {
+    		var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    	    return [ rentDates.indexOf(string) == -1 ]
+    	}
 		,onClose: function (selectedDate) { 
 		    $('#endDate').datepicker("option", 'minDate', selectedDate);
 		}
@@ -118,13 +139,14 @@ $(function () {
         ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12']
         ,dayNamesMin: ['일','월','화','수','목','금','토']
         ,maxDate: "+1Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-    	,beforeShowDay: addDates
+    	,beforeShowDay: function (date) {
+    		var string = jQuery.datepicker.formatDate('yy-MM-dd', date);
+    	    return [ rentDates.indexOf(string) == -1 ]
+    	}
 	    ,onClose: function (selectedDate) { 
 	    	$('#startDate').datepicker("option", 'maxDate', selectedDate); 
 	    }
     });
-    
-	var rentDates = [];
 	
 	var addDates = function(startDate, endDate) {
 		var currentDate = startDate,
@@ -150,7 +172,7 @@ $(function () {
 	}
 	
    
-   /* ----------- rent ---------- */
+   /* ----------- rent ----------- */
    $('#rent_submit').on('click', function (event) {
 	   // serialize() : <form에 포함된 입력 요소의 값을 이름=값&이름=값&... 형식으로 만드는 함수
 	   var formData = $('#rentform').serialize();

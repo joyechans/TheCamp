@@ -1,21 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" 
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" 
-		 contentType="text/html; charset=utf-8" 
-		 pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>캠핑장 예약</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<jsp:include page="../include/cssimport.jsp" />
-	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<jsp:include page="../include/cssimport.jsp" />	
 </head>
 <body class="animsition">
 
@@ -23,7 +18,7 @@
 
 	<!-- Title Page -->
 	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/main2.png);">
-		<h2 class="l-text2 t-center">
+		<h2 class="l-text1 t-center" style="color:#6fc583d1">
 			Camp
 		</h2>
 	</section>
@@ -149,49 +144,22 @@
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
 
-	<jsp:include page="../include/jsimport.jsp" />
+	<jsp:include page="../include/jsimport2.jsp" />
 	<script type="text/javascript">	 
-	$(function(){
-   		
-   			
-   			/* $('button[data-category]').on('click', function(event) {
-
-   	   			var category = $(this).attr('data-category');
-   				$.ajax({
-   	   				url:"campKind",
-   	   				data: "category=" + category,
-   	   				method: "GET",
-   	   				success: function(data, status, xhr) {
-   	   	   					alert(data);
-   	   	   					
-   	   	   			}
-	   	   			, error: function(xhr, status, err){
-						alert(err);
-						
-		   	   		}
-   	   	   		});
-   			}); */
-   			
+	$(function(){  			
 		$('#all').on('change', function(event){
-			this.form.submit();
-		 			
-		 	});
+			this.form.submit();		 			
+		 });
 		$('#room').on('change', function(event){
-				this.form.submit();
-			});
+			this.form.submit();
+		});
 		$('#caravan').on('change', function(event){
 			this.form.submit();
 		});
 		$('#glamping').on('change', function(event){
 			this.form.submit();
-		});
-   			
-   		 			
-			});
-	
-
-	
-		
+		});  		 			
+	});		
 	</script>
 
 </body>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="title" value="디테일" scope="request"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="../include/cssimport.jsp" />
 <style>
-/*datepicer 버튼 롤오버 시 손가락 모양 표시*/
 .ui-datepicker-trigger{cursor: pointer;}
-/*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{cursor: pointer;}
 </style>
 </head>
@@ -22,18 +20,12 @@
 	<!-- breadcrumb -->
 	<div class="bread-crumb bgwhite flex-w p-l-200 p-t-30">
 		<a href="/" class="s-text16">
-			홈
-			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+			홈<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 		</a>
-
 		<a href="/camp/campList?category=all" class="s-text16">
-			캠핑장 리스트
-			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+			캠핑장 리스트<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 		</a>
-
-		<span class="s-text17">
-			캠핑장 이름
-		</span>
+		<span class="s-text17">${ camp.campName }</span>
 	</div>
 
 	<!-- Product Detail -->
@@ -121,62 +113,49 @@
 						</p>
 					</div>
 				</div>			
+			</div>			
+		</div>
+	
+		<!-- Relate Product -->
+		<section class="relateproduct bgwhite p-t-100 p-b-120">
+			<div class="container">
+				<div class="sec-title p-b-60">
+					<h3 class="m-text5 t-center">Reviews</h3>
+				</div>						
+				<c:if test="${ empty reviews }">
+					<h5 class="t-center">작성된 리뷰가 존재하지 않습니다.</h5>				
+				</c:if>
+				
+				<div class="container bgwhite p-t-35 p-b-80">
+					<c:forEach var="review" items="${ reviews }">
+						<div class="size18 p-l-20 p-t-13 p-b-18 m-b-20 bo-rad-4" style="border:solid 1px #6c757deb">
+							<div class="row">
+								<div class="col-md-10 p-l-20">
+									<div class="flex-sb-m p-b-8">
+										<div>
+											<i class="fa fa-user" style="color: #555555;" aria-hidden="true"></i> 
+											<span class="s-text20">
+												${review.memberId } <span class="m-l-3 m-r-6">|</span>
+											</span> 
+											<span class="s-text20"> <fmt:formatDate value="${ review.regDate }" /></span>
+										</div>
+									</div>
+									<span class="m-text6 p-t-5 p-b-5"> ${review.title }</span>
+<c:set var="enter" value="
+" />
+									<p>${fn:replace(review.content, enter, '<br>') }</p>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				
 			</div>
-			
-		</div>
+		</section>
+
+	</div><!-- container end -->
 	
-
-	<!-- Relate Product -->
-	<section class="relateproduct bgwhite p-t-45 p-b-138">
-		<div class="container">
-			<div class="sec-title p-b-60">
-				<h3 class="m-text5 t-center">
-					Reviews
-				</h3>
-			</div>		
-			
-			<div class="container bgwhite p-t-35 p-b-80">
-		<c:forEach var="review" items="${ reviews }">
-			 <div class="dis-block size18 p-l-18 p-r-18 p-t-13 p-b-18 m-b-20 bg5 bo-rad-4">
-                     <div class="row">
-                     <div class="col-md-10 p-l-20">
-                        <div class="flex-sb-m p-b-8">
-                           <div>
-                              <i class="fa fa-user" style="color:#555555;" aria-hidden="true"></i>
-                              <span class="s-text20">
-                                 ${review.memberId }
-                                 <span class="m-l-3 m-r-6">|</span>
-                              </span>
-                              <span class="s-text20">
-                               <fmt:formatDate value="${ review.regDate }" />
-                              </span>
-                           </div>
-
-                           <!-- 추가 util 없으면 div 섹션 지우세요-->
-                           <div class="float-r">
-                              
-                           </div>
-                        </div>
-
-                        <span class="m-text6 p-t-5 p-b-5">
-                           ${review.title }
-                        </span>
-
-                        <p>
-                          ${review.content }
-                        </p>
-                     </div>
-                  </div>
-                 </div>				
-		</c:forEach>
-		</div>
-		</div>
-	</section>
-	
-	</div>
-	
-	<div style="display:none" id="rentDate">
-		
+	<div style="display:none" id="rentDate">		
 		<c:forEach var="rent" items="${ rents }">
 		<div><fmt:formatDate value="${ rent.startDate }" pattern="yyyy-MM-dd"/>#<fmt:formatDate value="${ rent.endDate }" pattern="yyyy-MM-dd"/></div>
 		</c:forEach>

@@ -19,8 +19,8 @@
 <jsp:include page="../include/header.jsp" />
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/main2.png);">
-		<h2 class="l-text2 t-center">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/resources/images/main3.png);">
+		<h2 class="l-text1 t-center" style="color:#6fc583d1">
 			Product
 		</h2>
 	</section>
