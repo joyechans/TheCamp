@@ -56,11 +56,10 @@
 											<tr class ="move-qna-detailpage" id ="move-qna-detailpage" onClick="location.href='/qna/qnadetail?qaNo=${ qnaList.qaNo }'"> 
 												<td>${ qnaList.qaNo }</td>
 												<td> 
-													<c:if test="${ qnaList.lockCheck eq 'on' }">
+													<%-- <c:if test="${ qnaList.lockCheck eq 'on' }">
 														<i class="fa fa-lock" aria-hidden="true" style="display:none;"></i>
-													</c:if>
+													</c:if> --%>
 													${ qnaList.title } 
-												
 												</td>
 												<td>${ qnaList.memberId }</td>
 												<td>${ qnaList.regDate }</td>
@@ -78,9 +77,16 @@
 
 										</tbody>
 								</table>
+								<c:choose>
+								<c:when test="${ loginuser.type eq 'admin' }">
+									<button type="button" class="btn btn-dark"  onclick ="location.href ='/qna/qnawrite'">공지사항 작성</button>
+								</c:when>
+								<c:otherwise>
 								<div class="flex-sb" style='display:${ not empty loginuser  ? "block" : "none" }'>
 									<button type="button" class="btn btn-dark"  onclick ="location.href ='/qna/qnawrite'">문의사항 남기기</button>
 								</div>
+								</c:otherwise>
+								</c:choose>							
 						</div>
 					</div>
 				</div>
@@ -144,24 +150,6 @@
 
 	<!-- js import -->
 	<jsp:include page="../include/jsimport.jsp" />
-	
-	<script type="text/javascript">
-		$(function(){
-	   		var qaNo = null;
-	   		var locked = null;
-
-	   		var trLink = document.querySelector(".move-qna");
-
-	   		trLink.addEventListener('click', function(event){
-				if (locked == 0 ){
-						location.href ='/qna/qnadetail/' + qaNo; 
-					}
-
-		   	});
-	   		   		
-		});
-
-	</script>
 	
 </body>
 </html>

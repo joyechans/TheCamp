@@ -144,10 +144,6 @@
     </div>
   	<br><br><br>
   	
-
-
-<!-- #container -->
-
 	<!-- Footer -->
 	<jsp:include page="../include/footer" />
 
@@ -166,7 +162,7 @@
 
 
 	<!-- js import -->
-	<jsp:include page="../include/jsimport.jsp" />
+	<jsp:include page="../include/jsimport2.jsp" />
 	<script type="text/javascript">
 		$(function () {
 		

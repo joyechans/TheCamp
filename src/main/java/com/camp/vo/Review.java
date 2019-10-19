@@ -1,6 +1,5 @@
 package com.camp.vo;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import lombok.Data;
@@ -17,8 +16,5 @@ public class Review {
 	private int rentNo;
 	
 	private int campNo;
-	
-	private ReviewFile file;  // flag = 1
-	private ArrayList<ReviewFile> fileList; // flag = 0
 	
 } 

@@ -2,11 +2,8 @@ package com.camp.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.camp.vo.QnA;
 import com.camp.vo.QnAComment;
-import com.google.gson.JsonObject;
 
 public interface QnAService {
 
@@ -28,7 +25,6 @@ public interface QnAService {
 	List<QnAComment> findQnAAnswer(int qaNo);
 	
 	
-
 	/* ========== for Admin */
 	List<QnA> findAllforAdmin();
 	List<QnAComment> findQnAAnswerforAdmin();
@@ -37,12 +33,5 @@ public interface QnAService {
 	void deleteAnswer(int commentVal);
 	void updateAnnounce(QnA qna);
 
-	
-
-	
-
-
-
-	
 
 }

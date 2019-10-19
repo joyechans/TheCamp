@@ -8,15 +8,15 @@
 	
 	<insert id="uploadQnA" parameterType="com.camp.vo.QnA" 
 			useGeneratedKeys="true" keyProperty="qaNo">
-		INSERT INTO QA ( MEMBERID, TITLE, CONTENT, WRITERTYPE, LOCKCHECK )
-		VALUES (#{ memberId }, #{ title }, #{ content }, #{ writerType }, #{ lockCheck })
+		INSERT INTO QA ( MEMBERID, TITLE, CONTENT, WRITERTYPE )
+		VALUES (#{ memberId }, #{ title }, #{ content }, #{ writerType })
 	
 	</insert>
 	
 	<!-- 목록조회  -->
 	<select id="selectQnA" resultType="com.camp.vo.QnA">
 	
-		SELECT QANO, TITLE, CONTENT, REGDATE, MEMBERID, COMPLETED, LOCKCHECK
+		SELECT QANO, TITLE, CONTENT, REGDATE, MEMBERID, COMPLETED
 		FROM QA
 		WHERE DELETED = '0' AND WRITERTYPE ="0"
 		ORDER BY QANO DESC
@@ -54,7 +54,6 @@
 			Q.REGDATE,
 			Q.MEMBERID,
 			Q.COMPLETED,
-			Q.LOCKCHECK,
 			A.COMMENTNO,
 			A.COMMENT,
 			A.REGDATE

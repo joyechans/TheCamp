@@ -1,9 +1,6 @@
 package com.camp.mapper;
 
-import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -38,8 +35,6 @@ public interface QnAMapper {
 	List<QnAComment> getComment();
 	void answerQuestion(int qaNo, String answerText);
 	void updateAnnounce(QnA qna);
-	
-
 	
 
 }

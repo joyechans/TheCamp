@@ -16,7 +16,6 @@ public class QnA {
 	private Boolean writerType;
 	private Boolean deleted;
 	private Boolean completed;
-	private String lockCheck;
 	
 	private List<QnAComment> qnaCommentList;
 	private QnAComment qnaAComment;

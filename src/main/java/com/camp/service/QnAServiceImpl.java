@@ -2,8 +2,6 @@ package com.camp.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +18,6 @@ public class QnAServiceImpl implements QnAService {
 
 	@Override
 	public void uploadQnA(QnA qna) {
-		
-		String lock = qna.getLockCheck();
-		if (lock == null) {
-			qna.setLockCheck("off");
-		}
 		
 		qnaMapper.uploadQnA(qna);
 		
@@ -103,23 +96,5 @@ public class QnAServiceImpl implements QnAService {
 		qnaMapper.updateAnnounce(qna);
 		
 	}
-
-
-
-
-
-
-	
-
-
-	
-
-
-
-
-
-
-
-
 
 }

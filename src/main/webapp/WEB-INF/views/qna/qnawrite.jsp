@@ -18,7 +18,7 @@
 	<jsp:include page="../include/header.jsp" />
 	
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(/resources/images/heading-pages-01.jpg);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(/resources/images/service-and-announce.jpg);">
 		<c:choose>
 			<c:when test="${ loginuser.type eq 'admin' }">
 				<h2 class="l-text2 t-center">

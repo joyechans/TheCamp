@@ -1,22 +1,11 @@
 package com.camp.service;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.camp.mapper.ReviewMapper;
-import com.camp.vo.CampFile;
-import com.camp.vo.Criteria;
 import com.camp.vo.PTReview;
-import com.camp.vo.PTReviewFile;
-import com.camp.vo.Rental;
 import com.camp.vo.Review;
-import com.camp.vo.ReviewFile;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -27,13 +16,6 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void writeReview(Review review) {
 		reviewMapper.insertReview(review);
-		int newReviewNo = review.getReviewNo();
-		
-//		대표이미지
-		ReviewFile titleFile = review.getFile();
-		titleFile.setReviewNo(newReviewNo);
-		reviewMapper.insertReviewFile(titleFile);
-		
 	}
 
 	@Override
@@ -42,17 +24,6 @@ public class ReviewServiceImpl implements ReviewService {
 		return review;
 	}
 
-	@Override
-	public ReviewFile findReviewFile(int reviewNo) {
-		ReviewFile file = reviewMapper.selectReviewFile(reviewNo);
-		return file;
-	}
-
-	@Override
-	public void updateReviewFile(ReviewFile reviewFile) {
-		reviewMapper.updateReviewFile(reviewFile);
-		
-	}
 
 	@Override
 	public void updateReview(Review review) {
@@ -66,17 +37,6 @@ public class ReviewServiceImpl implements ReviewService {
 		
 	}
 
-	@Override
-	public ReviewFile findReviewFileByReviewFileNo(int reviewFileNo) {
-		ReviewFile file = reviewMapper.selectReviewFileByReviewFileNo(reviewFileNo);
-		return file;
-	}
-
-	@Override
-	public void deleteReviewFile(int reviewNo) {
-		reviewMapper.deleteReviewFile(reviewNo);
-		
-	}
 
 	@Override
 	public void updateBuyFlag(int buyNo) {
@@ -100,13 +60,6 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void writeptReview(PTReview ptreview) {
 		reviewMapper.insertptReview(ptreview);
-		int newptReviewNo = ptreview.getPtreviewNo();
-		
-//		대표이미지
-		PTReviewFile titleFile = ptreview.getFile();
-		titleFile.setPtreviewNo(newptReviewNo);
-		reviewMapper.insertptReviewFile(titleFile);
-		
 	}
 
 	@Override
@@ -116,17 +69,6 @@ public class ReviewServiceImpl implements ReviewService {
 		
 	}
 
-	@Override
-	public PTReviewFile findptReviewFile(int ptreviewNo) {
-		PTReviewFile file = reviewMapper.selectptReviewFile(ptreviewNo);
-		return file;
-	}
-
-	@Override
-	public void updateptReviewFile(PTReviewFile ptreviewFile) {
-		reviewMapper.updateptReviewFile(ptreviewFile);
-		
-	}
 
 	@Override
 	public void updateptReview(PTReview ptreview) {
@@ -140,23 +82,12 @@ public class ReviewServiceImpl implements ReviewService {
 		
 	}
 
-	@Override
-	public void deleteptReviewFile(int ptreviewNo) {
-		reviewMapper.deleteptReviewFile(ptreviewNo);
-		
-	}
 
 	@Override
 	public void deleteptReview(int ptreviewNo) {
 		reviewMapper.deleteptReview(ptreviewNo);
 		
 	}
-
-	
-
-	
-
-	
 
 
 }

@@ -132,7 +132,7 @@
 				<div class="sec-title p-b-60">
 					<h3 class="m-text5 t-center">Reviews</h3>
 				</div>
-				<c:if test="${ empty reviews }">
+				<c:if test="${ empty ptreview }">
 					<h5 class="t-center">작성된 리뷰가 존재하지 않습니다.</h5>				
 				</c:if>
 				<div class="container bgwhite p-t-35 p-b-80">
