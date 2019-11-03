@@ -157,8 +157,7 @@
 	}
 	if ( getCookie( "Notice" ) != "done" )
 	{
-	noticeWindow = window.open("/pop","_blank","width=520,height=475,history=no,resizable=no,status=no,scrollbars=no,menubar=no");
-	//winddow.open의 ()의 것은 한줄에 계속 붙여써야 오류가 안남, 줄바뀌면 오류남
+	noticeWindow = window.open("/pop","_blank","width=350,height=315,history=no,resizable=no,status=no,scrollbars=no,menubar=no");
 	noticeWindow.opener = self;
 	}
 
